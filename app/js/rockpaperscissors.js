@@ -1,12 +1,8 @@
-////////////////////////////////////////////////
-/*   Provided Code - Please Don't Edit   */
-////////////////////////////////////////////////
-'use strict';
 
 function getInput() {
-    console.log("Please choose either 'rock', 'paper', or 'scissors'.")
-    return prompt();
+    return prompt("Please choose either 'rock', 'paper', or 'scissors'.");
 }
+
 function randomPlay() {
     var randomNumber = Math.random();
     if (randomNumber < 0.33) {
@@ -17,17 +13,15 @@ function randomPlay() {
         return "scissors";
     }
 }
-////////////////////////////////////////////////
-/*           Write Your Code Below            */
-////////////////////////////////////////////////
 
 function getPlayerMove(move) {
-	return move || ‘getInput ()’;
+    return move || getInput();
 }
 
 function getComputerMove(move) {
-    return move || 'randomPlay()';
+    return move || randomPlay();
 }
+
 
 function getWinner(playerMove,computerMove) {
     var winner;
@@ -51,34 +45,36 @@ function getWinner(playerMove,computerMove) {
     console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
 //future finn: position of above console log needed to console log after each play   
     return winner;
-    }
+}
 
-git commit -m "unit 4 homework is above"
+//unit 5 below
 
 function playToFive() {
     console.log('Let\'s play Rock Paper Scissors');
-     var playerWins = 0;
-     var computerWins = 0;
+    var playerWins = 0;
+    var computerWins = 0;
 
-while (playerWins < 5 && computerWins < 5) {
-
-    var playerMove = getPlayerMove();
-    var computerMove = getComputerMove();
-    var winner = getWinner(playerMove, computerMove);
+    while (playerWins < 5 && computerWins < 5) {
+        var playerMove = getPlayerMove();
+        var computerMove = getComputerMove();
+        var winner = getWinner(playerMove, computerMove);
     
-     if (winner === 'player') {
+        if (winner === 'player') {
            playerWins += 1;
            console.log('The score is currently ' + playerWins + ' to ' + computerWins);
         } else if (winner === 'computer') {
-           computerWins += 1;
-        console.log('The score is currently ' + playerWins + ' to ' + computerWins);
-        
-       } else {  
-        console.log("Wow, That was a tie!" + 'The score is currently ' + playerWins + ' to ' + computerWins);
+            computerWins += 1;
+            console.log('The score is currently ' + playerWins + ' to ' + computerWins);
+        } else {  
+            console.log("Wow, That was a tie!" + 'The score is currently ' + playerWins + ' to ' + computerWins);
+        }
     }
-    }
-   return [playerWins, computerWins];
-    }
+    return [playerWins, computerWins];
+}
    
-playToFive(5);
+playToFive();
+
+
+git push origin student
+
 
